@@ -62,10 +62,7 @@
               <span th:text="${session.administratorName + 'さん'}"
                 >山田さん</span
               >こんにちは！ &nbsp;&nbsp;&nbsp;
-              <a
-                href="../administrator/login.html"
-                class="navbar-link"
-                th:href="@{/logout}"
+              <a href="../administrator/login.html" class="navbar-link"
                 >ログアウト</a
               >
             </p>
@@ -89,6 +86,7 @@
         >
           <!-- ここから上を編集する必要はありません -->
 
+          <!-- ここにモックのtable要素を貼り付けます -->
           <table class="table table-striped">
             <thead>
               <tr>
@@ -98,17 +96,17 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr th:each="employee : ${employeeList}">
                 <td>
-                  <a href="detail.html">
-                    <span>山田太郎</span>
+                  <a href="detail.html" th:href="@{/employee/showDetail?id=} + ${employee.id}">
+                    <span th:text="${employee.name}">山田太郎</span>
                   </a>
                 </td>
                 <td>
-                  <span>2016/12/1</span>
+                  <span th:text="${employee.hireDate}">2016/12/1</span>
                 </td>
                 <td>
-                  <span>3人</span>
+                  <span th:text="${employee.dependentsCount} + '人'">3人</span>
                 </td>
               </tr>
               <tr>
@@ -139,7 +137,6 @@
               </tr>
             </tbody>
           </table>
-
           <!-- ここから下を編集する必要はありません -->
         </div>
       </div>
@@ -147,6 +144,9 @@
     <!-- end container -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="../../static/js/bootstrap.min.js"></script>
+    <script
+      src="../../static/js/bootstrap.min.js"
+      th:src="@{/js/bootstrap.min.js}"
+    ></script>
   </body>
 </html>
