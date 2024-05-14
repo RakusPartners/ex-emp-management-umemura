@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.Administrator;
 import com.example.form.InsertAdministratorForm;
+import com.example.form.LoginForm;
 import com.example.service.AdministratorService;
 
 /**
@@ -43,5 +44,14 @@ public class AdministratorController {
         administrator.setPassword(form.getPassword());
         administratorService.insert(administrator);
         return "redirect:/";
+    }
+    /**
+     * administrator/login.htmlにフォワードする処理を記述します
+     * @param form　InsertAdministratorFormオブジェクト
+     * @return　administrator/login.htmlにフォワード
+     */
+    @GetMapping("/")
+    public String toLogin(LoginForm form) {
+        return "administrator/login";
     }
 }
