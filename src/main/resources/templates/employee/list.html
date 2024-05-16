@@ -62,7 +62,7 @@
               <span th:text="${session.administratorName + 'さん'}"
                 >山田さん</span
               >こんにちは！ &nbsp;&nbsp;&nbsp;
-              <a href="../administrator/login.html" class="navbar-link"
+              <a href="../administrator/login.html" class="navbar-link" th:href="@{/logout}"
                 >ログアウト</a
               >
             </p>
@@ -107,32 +107,6 @@
                 </td>
                 <td>
                   <span th:text="${employee.dependentsCount} + '人'">3人</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="detail.html">
-                    <span>山田太郎</span>
-                  </a>
-                </td>
-                <td>
-                  <span>2016/12/1</span>
-                </td>
-                <td>
-                  <span>3人</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="detail.html">
-                    <span>山田太郎</span>
-                  </a>
-                </td>
-                <td>
-                  <span>2016/12/1</span>
-                </td>
-                <td>
-                  <span>3人</span>
                 </td>
               </tr>
             </tbody>
